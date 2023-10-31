@@ -76,6 +76,20 @@ public:
     ///
     void DeepCopy(const ViaPoint& other);
 
+    ///
+    /// \brief Return parent name
+    /// \param None
+    /// \return parent name
+    ///
+    utils::String parent() const;
+
+    ///
+    /// \brief Return object name
+    /// \param None
+    /// \return object name
+    ///
+    utils::String name() const;
+
 #ifndef SWIG
     ///
     /// \brief To be able to use operator "=" when assigning a ViaPoint to a 3D node

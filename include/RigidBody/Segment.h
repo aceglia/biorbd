@@ -263,17 +263,6 @@ public:
     ///
     bool isRotationAQuaternion() const;
 
-protected:
-    std::shared_ptr<int> m_idxInModel; ///< Index in RBDL model
-
-    ///
-    /// \brief Set the type of the segment
-    ///
-    void setType();
-
-    std::shared_ptr<RigidBodyDynamics::Math::SpatialTransform>
-    m_cor; ///< Attitude of the segment in parent reference frame
-
     ///
     /// \brief Set the DoF
     /// \param model The joint model
@@ -290,6 +279,28 @@ protected:
         const std::vector<utils::Range>& QRanges,
         const std::vector<utils::Range>& QDotRanges,
         const std::vector<utils::Range>& QDDotRanges);
+
+    ///
+    /// \brief Set the DoF
+    /// \param model The joint model
+    /// \param seqT Sequence of the translations
+    /// \param seqR Angle sequence of the Euler rotations
+    ///
+    void setDofs(
+        rigidbody::Joints& model,
+        const utils::String &seqT,
+        const utils::String &seqR);
+
+protected:
+    std::shared_ptr<int> m_idxInModel; ///< Index in RBDL model
+
+    ///
+    /// \brief Set the type of the segment
+    ///
+    void setType();
+
+    std::shared_ptr<RigidBodyDynamics::Math::SpatialTransform>
+    m_cor; ///< Attitude of the segment in parent reference frame
 
     ///
     /// \brief Set the total number of DoF

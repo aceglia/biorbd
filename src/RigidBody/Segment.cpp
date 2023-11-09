@@ -354,6 +354,17 @@ void rigidbody::Segment::setDofs(
     setJoints(model);
 }
 
+void rigidbody::Segment::setDofs(
+    rigidbody::Joints& model,
+    const utils::String &seqT,
+    const utils::String &seqR
+        )
+{
+    determineIfRotIsQuaternion(seqR);
+    setSequence(seqT, seqR);
+    setJoints(model);
+}
+
 void rigidbody::Segment::determineIfRotIsQuaternion(
     const utils::String &seqR)
 {

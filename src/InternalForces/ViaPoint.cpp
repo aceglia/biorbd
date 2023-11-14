@@ -55,3 +55,13 @@ void internal_forces::ViaPoint::DeepCopy(const internal_forces::ViaPoint &other)
 {
     utils::Vector3d::DeepCopy(other);
 }
+
+utils::String internal_forces::ViaPoint::name() const
+{
+    return internal_forces::ViaPoint::Node::name();
+}
+
+utils::String internal_forces::ViaPoint::parent() const
+{
+    return internal_forces::ViaPoint::Node::parent();
+}
